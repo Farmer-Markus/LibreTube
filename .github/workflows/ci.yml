@@ -65,3 +65,4 @@ jobs:
         continue-on-error: true
         run: |
           mkdir builds
+          mv app/build/outputs/apk/debug/*.apk builds/
