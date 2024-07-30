@@ -64,17 +64,4 @@ jobs:
       - name: Upload to Archive
         continue-on-error: true
         run: |
-          mv .github/uploader.py .
-          echo "GH_REPO = '${{ github.repository }}'" > config_file.py
-          git clone --filter=blob:none https://github.com/libre-tube/NightlyBuilds nightly
-          rm -rf nightly/*.apk
-          mv app/build/outputs/apk/debug/*.apk nightly/
-          cd nightly
-          python ../uploader.py
-      
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: app
-          path: nightly/*.apk
-
+          mkdir builds
